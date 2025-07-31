@@ -9,7 +9,9 @@ import { MenuItem } from '../../../app/model/MenuItem';
 export class HotelMenuService {
   //private baseUrl = 'http://localhost:8080/hotel/menu';
 
-  private baseUrl='http://localhost:8080/hotel'
+ // private baseUrl='http://localhost:8080/hotel'
+
+  private baseUrl='http://15.207.117.225:8080/hotel'
 
   constructor(private http: HttpClient) {}
 
