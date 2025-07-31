@@ -1,17 +1,19 @@
 <h2>Hotel Menu</h2>
 
-<pre>{{ menuItems | json }}</pre>  <!-- Debug JSON output -->
+<!-- Show error message if not within radius or location issues -->
+<div *ngIf="!showMenu && errorMessage">
+  <p style="color: red;">{{ errorMessage }}</p>
+</div>
 
-<ul *ngIf="menuItems.length > 0; else noMenu">
-  <li *ngFor="let item of menuItems">
-    <strong>ID:</strong> {{ item.hotelId }} <br>
-    <strong>Name:</strong> {{ item.hotelName }} <br>
-    <strong>Longitude:</strong> {{ item.longitude }} <br>
-    <strong>Latitude:</strong> {{ item.latitude }}
-    <hr>
-  </li>
-</ul>
+<!-- Show hotel details if within radius -->
+<div *ngIf="showMenu && hotelData">
+  <p><strong>ID:</strong> {{ hotelData.hotelId }}</p>
+  <p><strong>Name:</strong> {{ hotelData.name }}</p>
+  <p><strong>Latitude:</strong> {{ hotelData.latitude }}</p>
+  <p><strong>Longitude:</strong> {{ hotelData.longitude }}</p>
+</div>
 
-<ng-template #noMenu>
-  <p>No menu items found for this hotel.</p>
-</ng-template>
+<!-- Fallback message if hotel data is null -->
+<div *ngIf="!hotelData && !errorMessage">
+  <p>No menu data found for this hotel.</p>
+</div>

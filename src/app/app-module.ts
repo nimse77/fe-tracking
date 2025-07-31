@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -25,6 +25,7 @@ import {MenuComponent } from '../app/component/menu/menu';
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection()
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [App]
 })
 export class AppModule { }

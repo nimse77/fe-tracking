@@ -7,11 +7,17 @@ import { MenuItem } from '../../../app/model/MenuItem';
   providedIn: 'root'
 })
 export class HotelMenuService {
-  private baseUrl = 'http://localhost:8080/hotel/menu';
+  //private baseUrl = 'http://localhost:8080/hotel/menu';
+
+  private baseUrl='http://localhost:8080/hotel'
 
   constructor(private http: HttpClient) {}
 
-  getHotelMenu(hotelId: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/${hotelId}`);
+  getHotelInfo(hotelId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/hotelInfo/${hotelId}`);
+  }
+
+    getHotelMenu(hotelId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/menu/${hotelId}`);
   }
 }

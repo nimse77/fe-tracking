@@ -9,7 +9,8 @@ const routes: Routes = [
   // },
   //{ path: '', component: ScanMenu },
  // app-routing.module.ts
-{ path: 'menu/:hotelId', component: MenuComponent }
+{ path: 'menu/:hotelId', component: MenuComponent },
+  { path: '', redirectTo: 'menu/hotel123', pathMatch: 'full' } 
 
 ];
 
