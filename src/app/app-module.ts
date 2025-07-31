@@ -3,14 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+// import { Menu } from './component/item/menu';
+// import { ScanMenu } from './component/scan-menu/scan-menu';
+import { HttpClientModule } from '@angular/common/http';
+import {MenuComponent } from '../app/component/menu/menu';
+
 
 @NgModule({
   declarations: [
-    App
+    App,
+    MenuComponent
+    //  Menu,
+    // ScanMenu
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
