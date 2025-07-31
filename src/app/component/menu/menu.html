@@ -1,0 +1,17 @@
+<h2>Hotel Menu</h2>
+
+<pre>{{ menuItems | json }}</pre>  <!-- Debug JSON output -->
+
+<ul *ngIf="menuItems.length > 0; else noMenu">
+  <li *ngFor="let item of menuItems">
+    <strong>ID:</strong> {{ item.hotelId }} <br>
+    <strong>Name:</strong> {{ item.hotelName }} <br>
+    <strong>Longitude:</strong> {{ item.longitude }} <br>
+    <strong>Latitude:</strong> {{ item.latitude }}
+    <hr>
+  </li>
+</ul>
+
+<ng-template #noMenu>
+  <p>No menu items found for this hotel.</p>
+</ng-template>
