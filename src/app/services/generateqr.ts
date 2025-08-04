@@ -9,7 +9,7 @@ export class Generateqr {
 
   constructor(private http: HttpClient) {}
   
- baseUrl ='http://15.207.117.225/hotel/menu/';
+ baseUrl ='https://13.204.69.86/menu/';
  
     getMenuInfo(hotelId:any):Observable<any>{
     return this.http.get<any>(`${this.baseUrl}/${hotelId}}`);
