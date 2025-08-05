@@ -1,11 +1,9 @@
-<h2>Hotel Menu</h2>
+<!-- <h2>Hotel Menu</h2>
 
-<!-- Show error message if not within radius or location issues -->
 <div *ngIf="!showMenu && errorMessage">
   <p style="color: red;">{{ errorMessage }}</p>
 </div>
 
-<!-- Show hotel details if within radius -->
 <div *ngIf="showMenu && hotelData">
   <p><strong>ID:</strong> {{ hotelData.hotelId }}</p>
   <p><strong>Name:</strong> {{ hotelData.name }}</p>
@@ -13,7 +11,37 @@
   <p><strong>Longitude:</strong> {{ hotelData.longitude }}</p>
 </div>
 
-<!-- Fallback message if hotel data is null -->
 <div *ngIf="!hotelData && !errorMessage">
   <p>No menu data found for this hotel.</p>
+</div> -->
+
+<h2>Hotel Menu</h2>
+
+<!-- Show error message if not within radius or location issues -->
+<div *ngIf="!showMenu && errorMessage">
+  <p style="color: red;">{{ errorMessage }}</p>
+</div>
+
+<!-- Debug display: Always show hotelId and name -->
+<div>
+  <p><strong>Hotel ID:</strong> {{ hotelData?.hotelId }}</p>
+  <p><strong>Name:</strong> {{ hotelData?.name }}</p>
+  <p><strong>Latitude:</strong> {{ hotelData?.latitude }}</p>
+  <p><strong>Longitude:</strong> {{ hotelData?.longitude }}</p>
+</div>
+
+
+<!-- Show menu items if within distance -->
+<div *ngIf="showMenu && menuData.length > 0">
+  <h3>Available Menu</h3>
+  <ul>
+    <li *ngFor="let item of menuData">
+      {{ item.name }} - ₹{{ item.price }}
+    </li>
+  </ul>
+</div>
+
+<!-- Fallback -->
+<div *ngIf="!menuData.length && showMenu">
+  <p>No menu items found for this hotel.</p>
 </div>
